@@ -1,0 +1,19 @@
+version: "3.1"
+services:
+  web:
+    build: ./
+    ports:
+    - 80:8080
+    restart: always
+    volumes:
+    - webapp_data:/usr/local/tomcat/webapps
+    networks:
+      - frontend
+
+volumes:
+  webapp_data:
+
+networks:
+  frontend:
+    driver: bridge
+
